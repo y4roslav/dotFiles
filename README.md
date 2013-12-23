@@ -13,6 +13,8 @@ Toolset
 ------
 
 * ZSH
+Default shell for MacOS X is BASH. That not problem until you realise that it's old but it's not a big deal. 
+Because of friend of mine I change my default shell to zsh "just for fun" and because "it's looks coll" and now I see no reasons to back to bash. For my "kitchen" 
 
 * * *
 * tmux
