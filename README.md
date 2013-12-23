@@ -1,5 +1,5 @@
 dotFiles: Take your "kitchen" tools in order
-===========================================
+---
 
 > Modern cooking and food processing equipment has an extraordinary capacity to burn, cut, smash, mangle, and amputate parts of the tender human body. "ROFESSIONAL COOKING. Wayne Gisslen"
 
@@ -10,6 +10,13 @@ I believe that IT is more about craftsmanship rather about science or art. For m
 Toolset
 ------
 
-# ZSH
-# VIM
-#
+* ZSH
+
+* * *
+* tmux
+
+* * *
+* VIM
+
+* * *
+
