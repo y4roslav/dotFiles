@@ -54,3 +54,6 @@ set backspace=2
 
 " option to aid in pasting text unmodified from other applications
 set paste
+
+" enable spellchecker 
+set spell
