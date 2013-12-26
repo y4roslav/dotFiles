@@ -25,6 +25,7 @@ Default shell for MacOS X is BASH. By default old version of bash installed but 
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) is an open source, community-driven framework for managing your ZSH configuration.	
 * oh-my-zsh [themes](https://github.com/robbyrussell/oh-my-zsh/wiki/themes) preview will be useful to review
 * zsh [syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) plugin not included to oh-my-zsh by default but it very useful to have one.
+
 - - -
 ### vim 
 
