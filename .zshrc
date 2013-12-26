@@ -1,7 +1,12 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-# Add RVM to PRATH
-ATH=$PATH:$HOME/.rvm/bin/
+
+# Add RVM to PATH
+PATH=$PATH:$HOME/.rvm/bin/
+
+# Tunning to work with brew installed applications instead system one
+export PATH="/usr/local/bin:$PATH"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -41,7 +46,7 @@ ZSH_THEME="agnoster"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rails vagrant rvm zsh-syntax-highlighting osx)
+plugins=(git git-flow ruby rails vagrant rvm zsh-syntax-highlighting osx)
 
 source $ZSH/oh-my-zsh.sh
 
