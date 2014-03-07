@@ -7,11 +7,13 @@ PATH=$PATH:$HOME/.rvm/bin/
 # Tunning to work with brew installed applications instead system one
 export PATH="/usr/local/bin:$PATH"
 
+# Export EDITOR to satisfy requirements for tmuxinator
+export EDITOR='vim'
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="gabriel"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -51,3 +53,6 @@ plugins=(git git-flow ruby rails vagrant rvm zsh-syntax-highlighting osx)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+# Modify default PROMPT
+# PROMPT='[%{$fg[red]%D%}%{$reset_color%}]<%*>'
+
