@@ -31,8 +31,6 @@ Default shell for MacOS X is BASH. By default old version of bash installed but 
 
 I think vim don't needed in introduction but plugins for it was always bless and curse. So [Vundle](https://github.com/gmarik/vundle) would be a good solution for it.  
 
-*One extra thing about fonts and PowerLine. I love those things but it will require PowerLine installation and some minor changes on .vimrc and zsh theme. [This](https://powerline.readthedocs.org/en/latest/installation/osx.html) instruction will be very usefull*
-
 - - -
 ### tmux
 
