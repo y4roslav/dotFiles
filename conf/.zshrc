@@ -61,8 +61,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Add congigs from ~/.zshrcd directory
 # Note. This directory must be created and appropriate configs should be placed
-if [ -f ~/.zshrcd/* ]; then
-    source ~/.zshrcd/*
+if [ -d ~/.zshrcd ]; then
+  for file in ~/.zshrcd/[A-Za-z]*
+   do
+    source $file
+   done
 else
-    print "404: ~/.zshrcd not found."
+    print "404: ~/.zshrcd folder not found."
 fi
