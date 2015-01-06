@@ -15,6 +15,13 @@ export EDITOR='vim'
 # time that oh-my-zsh is loaded.
 ZSH_THEME="gabriel"
 
+## Vagrant ##
+# Set default provider
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+
+## Set LAND to UTF-8
+export LANG=en_GB.UTF-8
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -48,11 +55,17 @@ ZSH_THEME="gabriel"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow ruby rails vagrant rvm zsh-syntax-highlighting osx)
+plugins=(git git-flow ruby rails rvm zsh-syntax-highlighting osx chef vagrant aws)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-# Modify default PROMPT
-# PROMPT='[%{$fg[red]%D%}%{$reset_color%}]<%*>'
-
+# Add congigs from ~/.zshrcd directory
+# Note. This directory must be created and appropriate configs should be placed
+if [ -d ~/.zshrcd ]; then
+  for file in ~/.zshrcd/[A-Za-z]*
+   do
+    source $file
+   done
+else
+    print "404: ~/.zshrcd folder not found."
+fi
