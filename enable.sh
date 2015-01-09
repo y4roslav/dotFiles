@@ -10,6 +10,7 @@ if [[ -f '~/.zshrc' ]]; then
   mv ~/.zshrc ~/.zshrc.previous
 fi
 cp -v conf/.zshrc ~/.zshrc
+mkdir -v ~/.zshrcd
 
 # Install oh-my-zsh and modules
 if [[ -d '~/.oh-my-zsh' ]]; then
