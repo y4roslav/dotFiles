@@ -1,25 +1,56 @@
 #!/usr/bin/env bash
 
+# Copy non critical dot files without backup
+cp -v conf/.curlrc ~/.curlrc
+cp -v conf/.gitconfig ~/.gitconfig
+cp -v conf/.gitignore_global ~/.gitignore_global
+
+# Setup ZSH
+if [[ -f '~/.zshrc' ]]; then
+  mv ~/.zshrc ~/.zshrc.previous
+fi
+cp -v conf/.zshrc ~/.zshrc
+mkdir -v ~/.zshrcd
+
 # Install oh-my-zsh and modules
 if [[ -d '~/.oh-my-zsh' ]]; then
-  cd ~ && mv -f ~/.oh-my-zsh ~/.oh-my-zsh.previous
+  mv -f ~/.oh-my-zsh ~/.oh-my-zsh.previous
 fi
-cd ~ && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cd ~/.oh-my-zsh/themes && git clone https://github.com/Y4Rvik/gabriel-zsh.git 
-cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+(cd ~/.oh-my-zsh/themes/ && git clone https://github.com/Y4Rvik/gabriel-zsh.git gabriel && mv gabriel/gabriel.zsh-theme .)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
 
-# Install vim and vim modules
-if [[ -d '~/.vim' ]]; then
-  cd ~ && mv -f ~/.vim ~/.vim.previous
+# Setup vim  
+if [[ -f '~/.vimrc' ]]; then
+  mv ~/.vimrc ~/.vimrc.previous
 fi
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cp -v conf/.vimrc ~/.vimrc
+
+# Install vim modules
+if [[ -d '~/.vim' ]]; then
+  mv -f ~/.vim ~/.vim.previous
+fi
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+# Install Plugins
 vim +PluginInstall +qall
+
+# Setup tmux configs
+if [[ -f '~/.tmux.conf' ]]; then
+  mv ~/.tmux.conf ~/.tmux.conf.previous
+fi
+cp -v conf/.tmux.conf ~/.tmux.conf
+
+# Setup tmuxinator 
+if [[ -d '~/.tmuxinator' ]]; then
+  mv -f ~/.tmuxinator ~/.tmuxinator.previous
+fi
+cp -vr conf/.tmuxinator ~/.tmuxinator 
 
 # Install tmux-plugins
 if [[ -d '~/.tmux' ]]; then
-  cd ~ && mv -f ~/.tmux ~/.tmux.previous
+  mv -f ~/.tmux ~/.tmux.previous
 fi
-cd ~ && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # start a server but don't attach to it
 tmux start-server
 # create a new session but don't attach to it either
