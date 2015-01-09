@@ -13,11 +13,11 @@ cp -v conf/.zshrc ~/.zshrc
 
 # Install oh-my-zsh and modules
 if [[ -d '~/.oh-my-zsh' ]]; then
-  cd ~ && mv -f ~/.oh-my-zsh ~/.oh-my-zsh.previous
+  mv -f ~/.oh-my-zsh ~/.oh-my-zsh.previous
 fi
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-git clone https://github.com/Y4Rvik/gabriel-zsh.git ~/.oh-my-zsh/themes 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins 
+(cd ~/.oh-my-zsh/themes/ && git clone https://github.com/Y4Rvik/gabriel-zsh.git gabriel && mv gabriel/gabriel.zsh-theme .)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
 
 # Setup vim  
 if [[ -f '~/.vimrc' ]]; then
@@ -27,13 +27,13 @@ cp -v conf/.vimrc ~/.vimrc
 
 # Install vim modules
 if [[ -d '~/.vim' ]]; then
-  cd ~ && mv -f ~/.vim ~/.vim.previous
+  mv -f ~/.vim ~/.vim.previous
 fi
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 # Install Plugins
 vim +PluginInstall +qall
 
-# Setup tmux 
+# Setup tmux configs
 if [[ -f '~/.tmux.conf' ]]; then
   mv ~/.tmux.conf ~/.tmux.conf.previous
 fi

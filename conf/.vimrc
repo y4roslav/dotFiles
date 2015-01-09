@@ -28,7 +28,7 @@ if has('lua')
   Bundle "Shougo/neosnippet-snippets"
 end
 Bundle "terryma/vim-multiple-cursors"
-Bundle "wincent/command-t"
+Bundle "kien/ctrlp.vim"
 
 filetype plugin indent on
 
@@ -116,13 +116,9 @@ endif
 " Switch buffer
 set hidden
 set switchbuf=usetab
-nnoremap <C-S-Right> :bn<CR>
-nnoremap <C-S-Left> :bp<CR>
+nnoremap <TAB> :bn<CR>
+nnoremap <S-TAB> :bp<CR>
 
 " Switch tabs
 nnoremap <S-Left> :tabprevious<CR>
 nnoremap <S-Right> :tabnext<CR>
-
-" Command-T
-nnoremap <silent> <C-t> :CommandT<CR>
-nnoremap <silent> <C-b> :CommandTBuffer<CR>
