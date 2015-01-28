@@ -17,7 +17,7 @@ if [[ -d '~/.oh-my-zsh' ]]; then
   mv -f ~/.oh-my-zsh ~/.oh-my-zsh.previous
 fi
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-(cd ~/.oh-my-zsh/themes/ && git clone https://github.com/Y4Rvik/gabriel-zsh.git gabriel && mv gabriel/gabriel.zsh-theme .)
+(cd ~/.oh-my-zsh/themes/ && git clone https://github.com/Y4Rvik/gabriel-zsh.git gabriel && mv gabriel/gabriel.zsh-theme . && mv gabriel/gabriel-bira.zsh-theme .)
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
 
 # Setup vim  
