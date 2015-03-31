@@ -4,6 +4,10 @@ ZSH=$HOME/.oh-my-zsh
 # Add RVM to PATH
 PATH=$PATH:$HOME/.rvm/bin/
 
+# Add Go to PATH
+export GOPATH=~/Go
+export PATH="$GOPATH/bin:$PATH" 
+
 # Tunning to work with brew installed applications instead system one
 export PATH="/usr/local/bin:$PATH"
 
@@ -21,6 +25,8 @@ export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 ## Set LAND to UTF-8
 export LANG=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -55,17 +61,17 @@ export LANG=en_GB.UTF-8
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow ruby rails rvm zsh-syntax-highlighting osx chef vagrant aws)
+plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh)
 
 source $ZSH/oh-my-zsh.sh
 
 # Add congigs from ~/.zshrcd directory
 # Note. This directory must be created and appropriate configs should be placed
-if [ -d ~/.zshrcd ]; then
-  for file in ~/.zshrcd/[A-Za-z]*
-   do
-    source $file
-   done
+if [ -f ~/.zshrcd/* ]; then
+    source ~/.zshrcd/*
 else
-    print "404: ~/.zshrcd folder not found."
+    print "404: ~/.zshrcd not found."
 fi
+
+# Add ChefDK ruby as default 
+eval "$(chef shell-init zsh)"
