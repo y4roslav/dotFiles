@@ -65,12 +65,17 @@ plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cas
 
 source $ZSH/oh-my-zsh.sh
 
-# Add congigs from ~/.zshrcd directory
-# Note. This directory must be created and appropriate configs should be placed
-if [ -f ~/.zshrcd/* ]; then
-    source ~/.zshrcd/*
+SECRC=~/.zshrcd
+# Load local secret configurations just like GitHub tokens, etc
+if [ -d $SECRC ]; then
+  if [ "$(ls -A $SECRC)" ]; then
+    for file in $SECRC/*
+    do
+      source $file
+    done
+  fi
 else
-    print "404: ~/.zshrcd not found."
+  print "404: $SECRC folder not found"
 fi
 
 # Add ChefDK ruby as default 
