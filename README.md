@@ -27,13 +27,6 @@ Default shell for MacOS X is BASH. By default old version of bash installed but 
 * zsh [syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) plugin not included to oh-my-zsh by default but it very useful to have one.
 
 - - -
-### vim 
-
-I think vim don't needed in introduction but plugins for it was always bless and curse. So [Vundle](https://github.com/gmarik/vundle) would be a good solution for it.  
-
-*One extra thing about fonts and PowerLine. I love those things but it will require PowerLine installation and some minor changes on .vimrc and zsh theme. [This](https://powerline.readthedocs.org/en/latest/installation/osx.html) instruction will be very usefull*
-
-- - -
 ### tmux
 
 If you know about screen utility [tmux](http://tmux.sourceforge.net) wouldn't be very strange for you. Biggest disadvantage of tmux comparing to screen is that session recording is awful. But in pair with [tmuxinator](https://github.com/aziz/tmuxinator) it's lovely windows organiser with lot of potential to customisations. 

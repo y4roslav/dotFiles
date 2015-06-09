@@ -20,20 +20,6 @@ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 (cd ~/.oh-my-zsh/themes/ && git clone https://github.com/Y4Rvik/gabriel-zsh.git gabriel && mv gabriel/gabriel.zsh-theme . && mv gabriel/gabriel-bira.zsh-theme .)
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
 
-# Setup vim  
-if [[ -f '~/.vimrc' ]]; then
-  mv ~/.vimrc ~/.vimrc.previous
-fi
-cp -v conf/.vimrc ~/.vimrc
-
-# Install vim modules
-if [[ -d '~/.vim' ]]; then
-  mv -f ~/.vim ~/.vim.previous
-fi
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
-# Install Plugins
-vim +PluginInstall +qall
-
 # Setup tmux configs
 if [[ -f '~/.tmux.conf' ]]; then
   mv ~/.tmux.conf ~/.tmux.conf.previous
