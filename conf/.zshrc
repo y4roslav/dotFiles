@@ -1,15 +1,21 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Add RVM to PATH
-PATH=$PATH:$HOME/.rvm/bin/
-
 # Add Go to PATH
-export GOPATH=~/Go
-export PATH="$GOPATH/bin:$PATH" 
+export GOPATH=~/.golang
+export PATH=$GOPATH/bin:$PATH 
 
 # Tunning to work with brew installed applications instead system one
-export PATH="/usr/local/bin:$PATH"
+HOMEBREW=~/.homebrew
+PATH=$HOMEBREW/bin:$PATH
+
+# Tunning location for node.js packages 
+export NODE_MODULES_PATH=$HOME/.node_modules_global
+export PATH=$NODE_MODULES_PATH/bin:$PATH
+
+# Tunning location for Python packages
+export PYTHONUSERBASE=$HOME/.python
+export PATH=$PYTHONUSERBASE/bin:$PATH
 
 # Export EDITOR to satisfy requirements for tmuxinator
 export EDITOR='vim'
