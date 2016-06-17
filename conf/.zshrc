@@ -1,13 +1,15 @@
-# Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh configuration.  
 ZSH=$HOME/.oh-my-zsh
+
+# Tunning to work with brew installed applications instead system one
+export HOMEBREW_SBIN=~/.homebrew/sbin
+export HOMEBREW=~/.homebrew
+export PATH=$HOMEBREW/bin:$PATH
+export PATH=$HOMEBREW_SBIN:$PATH
 
 # Add Go to PATH
 export GOPATH=~/.golang
 export PATH=$GOPATH/bin:$PATH 
-
-# Tunning to work with brew installed applications instead system one
-HOMEBREW=~/.homebrew
-PATH=$HOMEBREW/bin:$PATH
 
 # Tunning location for node.js packages 
 export NODE_MODULES_PATH=$HOME/.node_modules_global
@@ -37,6 +39,7 @@ export LC_ALL=en_GB.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias mark="open -a IA\ Writer"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -67,7 +70,7 @@ export LC_ALL=en_GB.UTF-8
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh)
+plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh mercurial)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,4 +88,4 @@ else
 fi
 
 # Add ChefDK ruby as default 
-eval "$(chef shell-init zsh)"
+# eval "$(chef shell-init zsh)"

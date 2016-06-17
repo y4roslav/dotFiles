@@ -1,8 +1,8 @@
 [core]
   excludesfile = ~/.gitignore_global
-  editor = "/Applications/MacVim.app/Contents/MacOS/Vim"
+  editor = "/usr/bin/vi"
     pager = less -R
-    autocrlf = input
+	autocrlf = false
     safecrlf = true
     whitespace = fix, -indent-with-non-tab, space-before-tab, trailing-space, cr-at-eol
 
@@ -67,3 +67,7 @@
 
   # Pull from remote repository
   fork = !git config --get remote.origin.url | xargs git pull
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
