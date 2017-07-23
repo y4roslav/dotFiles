@@ -7,6 +7,9 @@ export HOMEBREW=~/.homebrew
 export PATH=$HOMEBREW/bin:$PATH
 export PATH=$HOMEBREW_SBIN:$PATH
 
+# Replace default OSX ruby by Brew version
+export PATH=$HOMEBREW/Cellar/ruby/2.4.0/bin:$PATH
+
 # Add Go to PATH
 export GOPATH=~/.golang
 export PATH=$GOPATH/bin:$PATH 
@@ -25,11 +28,12 @@ export EDITOR='vim'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
+ZSH_THEME="kphoen"
+#ZSH_THEME="gentoo"
 
 ## Vagrant ##
 # Set default provider
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+# export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 ## Set LAND to UTF-8
 export LANG=en_GB.UTF-8
@@ -70,9 +74,11 @@ alias mark="open -a IA\ Writer"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh mercurial)
+plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh mercurial python)
 
 source $ZSH/oh-my-zsh.sh
+
+eval `keychain --eval --agents ssh --inherit any id_rsa`
 
 SECRC=~/.zshrcd
 # Load local secret configurations just like GitHub tokens, etc
