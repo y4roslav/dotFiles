@@ -28,9 +28,8 @@ export EDITOR='vim'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="fino-time"
-ZSH_THEME="bira"
-#ZSH_THEME="gentoo"
+# ZSH_THEME="bira"
+ZSH_THEME="gnzh"
 
 ## Vagrant ##
 # Set default provider
@@ -79,7 +78,7 @@ plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cas
 
 source $ZSH/oh-my-zsh.sh
 
-eval `keychain --eval --agents ssh --inherit any id_rsa`
+eval `keychain --eval --agents ssh --inherit any id_rsa id_ecdsa`
 
 SECRC=~/.zshrcd
 # Load local secret configurations just like GitHub tokens, etc
