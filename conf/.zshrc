@@ -92,6 +92,7 @@ if [ -d $SECRC ]; then
 else
   print "404: $SECRC folder not found"
 fi
+# Load Cloud related secrets
 
-# Add ChefDK ruby as default 
-# eval "$(chef shell-init zsh)"
+CLOUD_SECRET=~/Documents/sKey/cloud.zsh
+source $CLOUD_SECRET
