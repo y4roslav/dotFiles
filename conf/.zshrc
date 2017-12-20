@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.  
 ZSH=$HOME/.oh-my-zsh
+SECRETS=/Volumes/secrets
 
 # Tunning to work with brew installed applications instead system one
 export HOMEBREW_SBIN=~/.homebrew/sbin
@@ -77,8 +78,7 @@ alias mark="open -a IA\ Writer"
 plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh mercurial python)
 
 source $ZSH/oh-my-zsh.sh
-
-eval `keychain --eval --agents ssh --inherit any id_rsa id_ecdsa`
+eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
 SECRC=~/.zshrcd
 # Load local secret configurations just like GitHub tokens, etc
@@ -93,6 +93,5 @@ else
   print "404: $SECRC folder not found"
 fi
 # Load Cloud related secrets
-
-CLOUD_SECRET=~/Documents/sKey/cloud.zsh
+CLOUD_SECRET=$SECRETS/cloud.zsh
 source $CLOUD_SECRET
