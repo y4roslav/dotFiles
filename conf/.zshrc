@@ -30,7 +30,7 @@ export EDITOR='vim'
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="bira"
-ZSH_THEME="gnzh"
+ZSH_THEME="avit"
 
 ## Vagrant ##
 # Set default provider
@@ -75,7 +75,27 @@ alias mark="open -a IA\ Writer"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rvm zsh-syntax-highlighting osx chef vagrant aws brew brew-cask knife knife_ssh mercurial python)
+plugins=(
+ git 
+ zsh-syntax-highlighting 
+ osx 
+ aws 
+ brew 
+ brew-cask 
+ python
+ colors
+ zsh-colored-man-pages
+ zsh-completions
+ command-time
+ command-not-found
+ dirhistory
+ docker
+ httpie
+ jsontools
+ last-working-dir
+ history-substring-search
+ zsh-autosuggestions 
+)
 
 source $ZSH/oh-my-zsh.sh
 eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
