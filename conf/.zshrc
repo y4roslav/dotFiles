@@ -2,14 +2,8 @@
 ZSH=$HOME/.oh-my-zsh
 SECRETS=/Volumes/secrets
 
-# Tunning to work with brew installed applications instead system one
-export HOMEBREW_SBIN=~/.homebrew/sbin
-export HOMEBREW=~/.homebrew
-export PATH=$HOMEBREW/bin:$PATH
-export PATH=$HOMEBREW_SBIN:$PATH
-
 # Replace default OSX ruby by Brew version
-export PATH=$HOMEBREW/Cellar/ruby/2.4.0/bin:$PATH
+export PATH=`gem environment gemdir`/bin:$PATH
 
 # Add Go to PATH
 export GOPATH=~/.golang
