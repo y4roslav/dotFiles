@@ -85,6 +85,7 @@ plugins=(
  dirhistory
  docker
  httpie
+ vi-mode
  jsontools
  last-working-dir
  history-substring-search
