@@ -2,6 +2,9 @@
 ZSH=$HOME/.oh-my-zsh
 SECRETS=/Volumes/secrets
 
+# Add bin folder to PATH for binaries specific to user 
+export PATH=${HOME}/bin:${PATH}
+
 # Replace default OSX ruby by Brew version
 export PATH=`gem environment gemdir`/bin:$PATH
 
