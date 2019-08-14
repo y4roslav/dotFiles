@@ -1,8 +1,15 @@
+# Vi mode
+bindkey -v
 # Path to your oh-my-zsh configuration.  
 ZSH=$HOME/.oh-my-zsh
 SECRETS=/Volumes/secrets
 
-# Add bin folder to PATH for binaries specific to user 
+# Tunning to work with brew installed applications instead system one
+#export PATH=$HOMEBREW/bin:$PATH
+#export PATH=$HOMEBREW_SBIN:$PATH
+
+# Add local bin folder to execute user specific applications
+
 export PATH=${HOME}/bin:${PATH}
 
 # Replace default OSX ruby by Brew version
@@ -20,14 +27,37 @@ export PATH=$NODE_MODULES_PATH/bin:$PATH
 export PYTHONUSERBASE=$HOME/.python
 export PATH=$PYTHONUSERBASE/bin:$PATH
 
+# Rust lang package path 
+export PATH=$PATH:~/.cargo/bin
+
 # Export EDITOR to satisfy requirements for tmuxinator
 export EDITOR='vim'
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="bira"
-ZSH_THEME="avit"
+# ZSH_THEME="avit"
+# ZSH_THEME="spaceship"
+ZSH_THEME="bullet-train"
+
+# Bullet Train Theme configuration 
+BULLETTRAIN_PROMPT_CHAR='➥'
+BULLETTRAIN_KCTX_KCONFIG=${HOME}/.kube/config
+BULLETTRAIN_PROMPT_ORDER=(
+    time
+		status
+    custom
+		context
+		dir
+		screen
+		ruby
+		virtualenv
+		aws
+		go
+		rust
+		git
+		cmd_exec_time
+)
 
 ## Vagrant ##
 # Set default provider
@@ -42,6 +72,9 @@ export LC_ALL=en_GB.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias mark="open -a IA\ Writer"
+
+# Tmuxinator
+alias mux="tmuxinator"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -87,12 +120,17 @@ plugins=(
  command-not-found
  dirhistory
  docker
- httpie
+ ruby
  vi-mode
+ rails
+ rust
+ httpie
  jsontools
  last-working-dir
  history-substring-search
  zsh-autosuggestions 
+ kubectl
+ kube-ps1
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,3 +151,11 @@ fi
 # Load Cloud related secrets
 CLOUD_SECRET=$SECRETS/cloud.zsh
 source $CLOUD_SECRET
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/y4rv1k/.gloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/y4rv1k/.gloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/y4rv1k/.gloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/y4rv1k/.gloud/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
