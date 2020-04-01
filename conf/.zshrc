@@ -2,7 +2,8 @@
 bindkey -v
 # Path to your oh-my-zsh configuration.  
 ZSH=$HOME/.oh-my-zsh
-SECRETS=/Volumes/secrets
+# Specific for MacOS 
+# SECRETS=/Volumes/secrets
 
 # Tunning to work with brew installed applications instead system one
 #export PATH=$HOMEBREW/bin:$PATH
@@ -20,8 +21,8 @@ export GOPATH=~/.golang
 export PATH=$GOPATH/bin:$PATH 
 
 # Tunning location for node.js packages 
-export NODE_MODULES_PATH=$HOME/.node_modules_global
-export PATH=$NODE_MODULES_PATH/bin:$PATH
+# export NODE_MODULES_PATH=$HOME/.node_modules_global
+# export PATH=$NODE_MODULES_PATH/bin:$PATH
 
 # Tunning location for Python packages
 export PYTHONUSERBASE=$HOME/.python
@@ -46,7 +47,7 @@ BULLETTRAIN_KCTX_KCONFIG=${HOME}/.kube/config
 BULLETTRAIN_PROMPT_ORDER=(
     time
 		status
-    custom
+    	custom
 		context
 		dir
 		screen
@@ -59,22 +60,12 @@ BULLETTRAIN_PROMPT_ORDER=(
 		cmd_exec_time
 )
 
-## Vagrant ##
-# Set default provider
-# export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
-
 ## Set LAND to UTF-8
-export LANG=en_GB.UTF-8
-export LC_ALL=en_GB.UTF-8
+#export LANG=en_GB.UTF-8
+#export LC_ALL=en_GB.UTF-8
 
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mark="open -a IA\ Writer"
-
-# Tmuxinator
-alias mux="tmuxinator"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -107,16 +98,9 @@ alias mux="tmuxinator"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
  git 
- zsh-syntax-highlighting 
  osx 
  aws 
- brew 
- brew-cask 
  python
- colors
- zsh-colored-man-pages
- zsh-completions
- command-time
  command-not-found
  dirhistory
  docker
@@ -128,13 +112,12 @@ plugins=(
  jsontools
  last-working-dir
  history-substring-search
- zsh-autosuggestions 
  kubectl
- kube-ps1
 )
 
-source $ZSH/oh-my-zsh.sh
-eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
+# MacOS and Workstation specific settings for ssh key management
+#source $ZSH/oh-my-zsh.sh
+#eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
 SECRC=~/.zshrcd
 # Load local secret configurations just like GitHub tokens, etc
@@ -149,13 +132,8 @@ else
   print "404: $SECRC folder not found"
 fi
 # Load Cloud related secrets
-CLOUD_SECRET=$SECRETS/cloud.zsh
-source $CLOUD_SECRET
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/y4rv1k/.gloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/y4rv1k/.gloud/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/y4rv1k/.gloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/y4rv1k/.gloud/google-cloud-sdk/completion.zsh.inc'; fi
+# MacOS Specific 
+# CLOUD_SECRET=$SECRETS/cloud.zsh
+# source $CLOUD_SECRET
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

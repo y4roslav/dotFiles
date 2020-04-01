@@ -4,6 +4,3 @@
 cd ~/.oh-my-zsh && git pull
 cd ~/.oh-my-zsh/themes && git pull
 cd ~/.oh-my-zsh/custom/plugins && git pull
-
-# Update tmux plugins
-cd ~/.tmux/plugins/tpm && git pull
