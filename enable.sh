@@ -17,4 +17,4 @@ if [[ -d '~/.oh-my-zsh' ]]; then
   mv -f ~/.oh-my-zsh ~/.oh-my-zsh.previous
 fi
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-wget https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -P $ZSH_CUSTOM/themes/
+wget https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -P $HOME/.oh-my-zsh/themes/
