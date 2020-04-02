@@ -1,28 +1,26 @@
-# Vi mode
-bindkey -v
-# Path to your oh-my-zsh configuration.  
-ZSH=$HOME/.oh-my-zsh
-# Specific for MacOS 
-# SECRETS=/Volumes/secrets
+#############################
+###### Specific for MacOS ###
+#############################
+#SECRETS=/Volumes/secrets
+#CLOUD_SECRET=$SECRETS/cloud.zsh
+#source $CLOUD_SECRET
 
 # Tunning to work with brew installed applications instead system one
 #export PATH=$HOMEBREW/bin:$PATH
 #export PATH=$HOMEBREW_SBIN:$PATH
 
-# Add local bin folder to execute user specific applications
-
-export PATH=${HOME}/bin:${PATH}
-
 # Replace default OSX ruby by Brew version
-export PATH=`gem environment gemdir`/bin:$PATH
+#export PATH=`gem environment gemdir`/bin:$PATH
 
 # Add Go to PATH
-export GOPATH=~/.golang
-export PATH=$GOPATH/bin:$PATH 
+#export GOPATH=~/.golang
+#export PATH=$GOPATH/bin:$PATH 
 
-# Tunning location for node.js packages 
-# export NODE_MODULES_PATH=$HOME/.node_modules_global
-# export PATH=$NODE_MODULES_PATH/bin:$PATH
+####################################
+### PATH modification ##############
+####################################
+
+export PATH=${HOME}/bin:${PATH}
 
 # Tunning location for Python packages
 export PYTHONUSERBASE=$HOME/.python
@@ -30,42 +28,6 @@ export PATH=$PYTHONUSERBASE/bin:$PATH
 
 # Rust lang package path 
 export PATH=$PATH:~/.cargo/bin
-
-# Export EDITOR to satisfy requirements for tmuxinator
-export EDITOR='vim'
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="avit"
-# ZSH_THEME="spaceship"
-ZSH_THEME="bullet-train"
-
-# Bullet Train Theme configuration 
-BULLETTRAIN_PROMPT_CHAR='➥'
-BULLETTRAIN_KCTX_KCONFIG=${HOME}/.kube/config
-BULLETTRAIN_PROMPT_ORDER=(
-    time
-		status
-    	custom
-		context
-		dir
-		screen
-		ruby
-		virtualenv
-		aws
-		go
-		rust
-		git
-		cmd_exec_time
-)
-
-## Set LAND to UTF-8
-#export LANG=en_GB.UTF-8
-#export LC_ALL=en_GB.UTF-8
-
-
-# Example aliases
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -93,47 +55,125 @@ BULLETTRAIN_PROMPT_ORDER=(
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(
- git 
- osx 
- aws 
- python
- command-not-found
- dirhistory
- docker
- ruby
- vi-mode
- rails
- rust
- httpie
- jsontools
- last-working-dir
- history-substring-search
- kubectl
-)
-
-# MacOS and Workstation specific settings for ssh key management
 #source $ZSH/oh-my-zsh.sh
 #eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
-SECRC=~/.zshrcd
-# Load local secret configurations just like GitHub tokens, etc
-if [ -d $SECRC ]; then
-  if [ "$(ls -A $SECRC)" ]; then
-    for file in $SECRC/*
-    do
-      source $file
-    done
-  fi
-else
-  print "404: $SECRC folder not found"
+
+##################################
+##### ZPLUG ######################
+##################################
+# You can customize where you put it but it's generally recommended that you put in $HOME/.zplug
+if [[ ! -d ~/.zplug ]];then
+    git clone https://github.com/b4b4r07/zplug ~/.zplug
 fi
-# Load Cloud related secrets
-# MacOS Specific 
-# CLOUD_SECRET=$SECRETS/cloud.zsh
-# source $CLOUD_SECRET
+
+source ~/.zplug/init.zsh
+
+# Make sure to use double quotes
+zplug "zsh-users/zsh-history-substring-search"
+
+# defer means to load this plugin after all the other plugins
+zplug "zdharma/fast-syntax-highlighting", defer:2
+
+# Use the package as a command
+# And accept glob patterns (e.g., brace, wildcard, ...)
+zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
+
+# Can manage everything e.g., other person's zshrc
+zplug "tcnksm/docker-alias", use:zshrc
+
+# Disable updates using the "frozen" tag
+zplug "k4rthik/git-cal", as:command, frozen:1
+
+# Grab binaries from GitHub Releases
+# and rename with the "rename-to:" tag
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
+
+# Supports oh-my-zsh plugins and the like
+zplug "plugins/git",   from:oh-my-zsh
+
+# Also prezto
+# zplug "modules/prompt", from:prezto
+
+# Load if "if" tag returns true
+zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+
+# Run a command after a plugin is installed/updated
+# Provided, it requires to set the variable like the following:
+# ZPLUG_SUDO_PASSWORD="********"
+zplug "jhawthorn/fzy", \
+    as:command, \
+    rename-to:fzy, \
+    hook-build:"make && sudo make install"
+
+# Supports checking out a specific branch/tag/commit
+zplug "b4b4r07/enhancd", at:v1
+zplug "mollifier/anyframe", at:4c23cb60
+
+# Rename a command with the string captured with `use` tag
+zplug "b4b4r07/httpstat", \
+    as:command, \
+    use:'(*).sh', \
+    rename-to:'$1'
+
+# Group dependencies
+# Load "emoji-cli" if "jq" is installed in this example
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq
+zplug "b4b4r07/emoji-cli", \
+    on:"stedolan/jq"
+# Note: To specify the order in which packages should be loaded, use the defer
+#       tag described in the next section
+
+# Set the priority when loading
+# e.g., zsh-syntax-highlighting must be loaded
+# after executing compinit command and sourcing other plugins
+# (If the defer tag is given 2 or above, run after compinit command)
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# command auto-suggestion based on history
+zplug "zsh-users/zsh-autosuggestions"
+
+# Can manage local plugins
+zplug "~/.zsh", from:local
+
+# Load theme file
+setopt prompt_subst # Make sure prompt is able to be generated properly.
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # as:theme # defer until other plugins like oh-my-zsh is loaded
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
+# Bullet Train Theme configuration 
+
+BULLETTRAIN_PROMPT_CHAR='➥'
+BULLETTRAIN_PROMPT_ORDER=(
+    time
+		status
+    custom
+		context
+		dir
+		ruby
+		virtualenv
+		aws
+		go
+		rust
+		git
+		cmd_exec_time
+)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
