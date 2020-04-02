@@ -1,20 +1,22 @@
 #############################
 ###### Specific for MacOS ###
 #############################
-#SECRETS=/Volumes/secrets
-#CLOUD_SECRET=$SECRETS/cloud.zsh
-#source $CLOUD_SECRET
+SECRETS=/Volumes/secrets
+CLOUD_SECRET=$SECRETS/cloud.zsh
+source $CLOUD_SECRET
+
+eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
 # Tunning to work with brew installed applications instead system one
-#export PATH=$HOMEBREW/bin:$PATH
-#export PATH=$HOMEBREW_SBIN:$PATH
+export PATH=$HOMEBREW/bin:$PATH
+export PATH=$HOMEBREW_SBIN:$PATH
 
 # Replace default OSX ruby by Brew version
-#export PATH=`gem environment gemdir`/bin:$PATH
+export PATH=`gem environment gemdir`/bin:$PATH
 
 # Add Go to PATH
-#export GOPATH=~/.golang
-#export PATH=$GOPATH/bin:$PATH 
+export GOPATH=~/.golang
+export PATH=$GOPATH/bin:$PATH 
 
 ####################################
 ### PATH modification ##############
@@ -55,8 +57,6 @@ export PATH=$PATH:~/.cargo/bin
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-#source $ZSH/oh-my-zsh.sh
-#eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
 
 ##################################
@@ -101,6 +101,11 @@ zplug "plugins/git",   from:oh-my-zsh
 
 # Load if "if" tag returns true
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]" # Aliases and functions
+zplug "plugins/gem",   from:oh-my-zsh, if:"(( $+commands[gem] ))" # Completion
+
+zplug "akoenig/gulp.plugin.zsh" # Gulp completion in dev dirs
+zplug "chrissicool/zsh-256color" # Color autoset
 
 # Run a command after a plugin is installed/updated
 # Provided, it requires to set the variable like the following:
