@@ -1,6 +1,7 @@
 #############################
 ###### Specific for MacOS ###
 #############################
+# BEGIN: Comment or un-comment lines bellow 
 SECRETS=/Volumes/secrets
 CLOUD_SECRET=$SECRETS/cloud.zsh
 source $CLOUD_SECRET
@@ -17,6 +18,13 @@ export PATH=`gem environment gemdir`/bin:$PATH
 # Add Go to PATH
 export GOPATH=~/.golang
 export PATH=$GOPATH/bin:$PATH 
+
+# END: Comment or un-comment lines above 
+
+# Fix localization issue 
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 ####################################
 ### PATH modification ##############
