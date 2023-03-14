@@ -8,9 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Add favorite colorschema and style
-    use "EdenEast/nightfox.nvim"
-    use 'freddiehaddad/feline.nvim'
-    use 'folke/tokyonight.nvim'
+    -- use "EdenEast/nightfox.nvim"
     
     -- Fuzzy finder over lists 
     use {
@@ -19,7 +17,7 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    -- Language interfaces and LSP
-    use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    -- Better language syntax
+    use ({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
 
     end)
