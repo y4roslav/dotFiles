@@ -43,9 +43,9 @@ To manage feel and looks accross all Linux/Unix platfrom I'm using:
 
 ## Editors
 
-### VIM
-
 ### NeoVIM
+
+To manage and setup NeoVIM I'm using lua language and [packer plugin manager](https://github.com/wbthomason/packer.nvim)
 
 ## Waylan Compositor
 
