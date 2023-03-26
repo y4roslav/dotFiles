@@ -3,8 +3,7 @@
 #############################
 # BEGIN: Comment or un-comment lines bellow 
 SECRETS=/Volumes/secrets
-CLOUD_SECRET=$SECRETS/cloud.zsh
-source $CLOUD_SECRET
+CLOUD_SECRET=$SECRETS/cloud.sh
 
 # Add brew to the PATH
 export HOMEBREW=/opt/homebrew
@@ -15,10 +14,6 @@ export PATH=$HOMEBREW_SBIN:$PATH
 
 # Replace default OSX ruby by Brew version
 export PATH=`gem environment gemdir`/bin:$PATH
-
-# Add Go to PATH
-export GOPATH=~/.golang
-export PATH=$GOPATH/bin:$PATH 
 
 # END: Comment or un-comment lines above 
 
@@ -66,9 +61,6 @@ export PATH=$PATH:~/.cargo/bin
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-##### keybase ###########
-
-eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
 ##################################
 ##### ZPLUG ######################
@@ -175,4 +167,17 @@ BULLETTRAIN_PROMPT_ORDER=(
 		cmd_exec_time
 )
 
+# Run external scripts 
+######################
+
+# Fuzzy Finder 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Run neofetch
+neofetch
+
+# Initiate secret keys for platfrom management (AWS, Nomad, DO, Linode)
+source $CLOUD_SECRET
+
+# Run keychain for SSH keys management (see Funtoo project for details) 
+eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
