@@ -19,11 +19,13 @@ window:
     x: 12
     y: 12
 
-  #decorations: full
-  decorations: buttonless
+  decorations: full
+  # decorations: buttonless
+  opacity: 0.9
 
   # Window title
-  title: Alacritty
+  # title: Alacritty
+  dynamic_title: true
 
   # Window class (Linux/BSD only):
   class:
@@ -70,7 +72,7 @@ font:
     style: Regular Italic
 
   # Point size
-  size: 13.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
