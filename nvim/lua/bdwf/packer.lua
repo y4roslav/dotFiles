@@ -8,13 +8,23 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Add favorite colorschema and style
-    -- use "EdenEast/nightfox.nvim"
-    
+    use 'navarasu/onedark.nvim'
+    --
+    -- Add visualisation for buffers
+    -- using packer.nvim
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+
     -- Fuzzy finder over lists 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
     -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    -- Add File Browser 
+    use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     }
 
     -- Better language syntax

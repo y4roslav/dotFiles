@@ -24,3 +24,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
+vim.opt.termguicolors = true
+vim.cmd [[
+    silent! colorscheme darkone
+    hi Normal guibg=#0a0a0a
+    ]]
