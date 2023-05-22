@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #############################
 ###### Specific for MacOS ###
 #############################
@@ -136,7 +143,9 @@ zplug "~/.zsh", from:local
 
 # Load theme file
 setopt prompt_subst # Make sure prompt is able to be generated properly.
-zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # as:theme # defer until other plugins like oh-my-zsh is loaded
+# zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 
+zplug romkatv/powerlevel10k, as:theme, depth:1
+# as:theme # defer until other plugins like oh-my-zsh is loaded
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -158,10 +167,7 @@ BULLETTRAIN_PROMPT_ORDER=(
     custom
 		context
 		dir
-		ruby
-		virtualenv
 		aws
-		go
 		rust
 		git
 		cmd_exec_time
@@ -181,3 +187,6 @@ source $CLOUD_SECRET
 
 # Run keychain for SSH keys management (see Funtoo project for details) 
 eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
