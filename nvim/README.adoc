@@ -1,0 +1,13 @@
+== Neovim setup details
+
+Reference repo [ThePrimeagen](https://github.com/ThePrimeagen/init.lua)
+
+Plugins: 
+
+- https://github.com/wbthomason/packer.nvim[Plugin manager]
+- https://github.com/nvim-telescope/telescope.nvim[Fuzzy Finder]
+- https://github.com/nvim-treesitter/nvim-treesitter[TreeSitter that manage language parsers]
+- https://github.com/nvim-telescope/telescope-file-browser.nvim[Telescope File manager]
+- https://github.com/akinsho/bufferline.nvim[Buffer View]
+- htts://github.com/VonHeikemen/lsp-zero.nvim[LSP management thing] (optional) 
+ 
