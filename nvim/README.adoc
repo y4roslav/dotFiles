@@ -9,5 +9,5 @@ Plugins:
 - https://github.com/nvim-treesitter/nvim-treesitter[TreeSitter that manage language parsers]
 - https://github.com/nvim-telescope/telescope-file-browser.nvim[Telescope File manager]
 - https://github.com/akinsho/bufferline.nvim[Buffer View]
-- htts://github.com/VonHeikemen/lsp-zero.nvim[LSP management thing] (optional) 
+- https://github.com/VonHeikemen/lsp-zero.nvim[LSP management thing] (optional) 
  
