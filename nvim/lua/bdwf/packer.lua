@@ -30,4 +30,7 @@ return require('packer').startup(function(use)
     -- Better language syntax
     use ({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
 
+    -- Toggle Terminal 
+    use {"akinsho/toggleterm.nvim", tag = '*'}
+
     end)
