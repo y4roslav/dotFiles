@@ -12,3 +12,48 @@ Plugins:
 - https://github.com/VonHeikemen/lsp-zero.nvim[LSP management thing] (optional) 
 - https://github.com/akinsho/toggleterm.nvim[Toogle Terminal] 
  
+== Language specific setup 
+
+Rust lerated https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/#why-neovim-for-rust-development[Article]
+
+=== Rust: 
+
+- https://github.com/williamboman/mason.nvim[Mason] to manage LSP, debuggers and linter
+- https://github.com/williamboman/mason-lspconfig.nvim[Manson] complimentary functionality 
+
+    On Neovim command mode input :MasonInstall rust-analyzer codelldb. 
+
+- https://github.com/neovim/nvim-lspconfig[nvim-lspconfig] as collection of LSP
+- https://github.com/simrat39/rust-tools.nvim[rust-lspconfig] for rust_analyzer for you, 
+so don't do that manually, as it causes conflicts
+- https://github.com/folke/trouble.nvim[Trouble] for showing diagnostics result
+- https://github.com/preservim/tagbar[Tagbar Toggle] for stags
+
+==== Debugger
+
+- https://github.com/puremourning/vimspector[vimspector] as debuging sub-system
+
+Compile our Rust project with `+cargo build+`, `+cargo run+`, `+cargo test+`, so that we can produce a binary.
+Create a `+.vimspector.json+` file at the root of your Cargo directory.
+Attach CodeLLDB and your Rust application binary to Vimspector in the `+.vimspector.json+` file.
+Create a debugger breakpoint in your code with `+:call vimspector#ToggleBreakpoint()+`.
+Launch Vimspector and start debugging with `+:call vimspector#Launch().
+app/.vimspector.json+`
+
+.vimspector.json
+[source, json]
+----
+{
+  "configurations": {
+    "launch": {
+      "adapter": "CodeLLDB",
+      "filetypes": [ "rust" ],
+      "configuration": {
+        "request": "launch",
+        "program": "${workspaceRoot}/target/debug/app"
+      }
+    }
+  }
+}
+----
+
