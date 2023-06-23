@@ -1,7 +1,7 @@
 require("toggleterm").setup {
     border = 'double',
-    size = 90,
+    size = 20,
     open_mapping = [[<C-\>]],
     shade_filetypes = {}, 
-    direction = 'float',
+    direction = 'horizontal', -- Options: 'vertical', "horizontal', 'tab', 'float'
   }
