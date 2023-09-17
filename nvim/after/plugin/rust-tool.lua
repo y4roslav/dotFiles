@@ -10,3 +10,7 @@ rt.setup({
     end,
   },
 })
+
+-- Command:
+-- RustRunnables
+require('rust-tools').runnables.runnables()

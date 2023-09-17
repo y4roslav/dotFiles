@@ -11,6 +11,7 @@ Plugins:
 - https://github.com/akinsho/bufferline.nvim[Buffer View]
 - https://github.com/VonHeikemen/lsp-zero.nvim[LSP management thing] (optional) 
 - https://github.com/akinsho/toggleterm.nvim[Toogle Terminal] 
+- https://github.com/tigion/nvim-asciidoc-preview[AsciiDoc Preview]
  
 == Language specific setup 
 
@@ -28,32 +29,4 @@ Rust lerated https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-devel
 so don't do that manually, as it causes conflicts
 - https://github.com/folke/trouble.nvim[Trouble] for showing diagnostics result
 - https://github.com/preservim/tagbar[Tagbar Toggle] for stags
-
-==== Debugger
-
-- https://github.com/puremourning/vimspector[vimspector] as debuging sub-system
-
-Compile our Rust project with `+cargo build+`, `+cargo run+`, `+cargo test+`, so that we can produce a binary.
-Create a `+.vimspector.json+` file at the root of your Cargo directory.
-Attach CodeLLDB and your Rust application binary to Vimspector in the `+.vimspector.json+` file.
-Create a debugger breakpoint in your code with `+:call vimspector#ToggleBreakpoint()+`.
-Launch Vimspector and start debugging with `+:call vimspector#Launch().
-app/.vimspector.json+`
-
-.vimspector.json
-[source, json]
-----
-{
-  "configurations": {
-    "launch": {
-      "adapter": "CodeLLDB",
-      "filetypes": [ "rust" ],
-      "configuration": {
-        "request": "launch",
-        "program": "${workspaceRoot}/target/debug/app"
-      }
-    }
-  }
-}
-----
 

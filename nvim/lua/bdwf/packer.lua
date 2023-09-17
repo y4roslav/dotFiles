@@ -54,12 +54,11 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'                            
     use 'hrsh7th/vim-vsnip'                             
 
-    -- Debbuger 
-    use 'puremourning/vimspector'
-
     -- Extra 
-    use {"folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" }
+    use {'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons' }
 
-    use "preservim/tagbar" 
+    use 'preservim/tagbar' 
+    
+    use 'tigion/nvim-asciidoc-preview'
 
     end)
