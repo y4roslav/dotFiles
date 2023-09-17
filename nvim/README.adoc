@@ -12,6 +12,7 @@ Plugins:
 - https://github.com/VonHeikemen/lsp-zero.nvim[LSP management thing] (optional) 
 - https://github.com/akinsho/toggleterm.nvim[Toogle Terminal] 
 - https://github.com/tigion/nvim-asciidoc-preview[AsciiDoc Preview]
+- https://github.com/nvim-tree/nvim-tree.lua/wiki/Installation[neovim Tree Manager]
  
 == Language specific setup 
 
