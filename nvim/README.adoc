@@ -26,7 +26,8 @@ NOTE: https://www.youtube.com/watch?v=gihHLsClHF0[Great YouTube Video Related Ru
 - https://github.com/williamboman/mason-lspconfig.nvim[Manson] complimentary functionality 
 
     On Neovim command mode input :MasonInstall rust-analyzer codelldb. 
-    NOTE: to automate instalation of tools we can use https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim[mason-tool-installer]
+
+NOTE: to automate instalation of tools we can use https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim[mason-tool-installer]
 
 - https://github.com/neovim/nvim-lspconfig[nvim-lspconfig] as collection of LSP
 - https://github.com/simrat39/rust-tools.nvim[rust-lspconfig] for rust_analyzer for you, 
@@ -36,3 +37,6 @@ so don't do that manually, as it causes conflicts
 - https://github.com/mfussenegger/nvim-dap[Debug Adapter Protocol]
 - https://github.com/rcarriga/nvim-dap-ui[UI for DAP]
 
+=== Python
+
+Mason: `pyright`, `flake8`, `dark` 
