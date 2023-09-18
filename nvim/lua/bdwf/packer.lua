@@ -23,8 +23,8 @@ return require('packer').startup(function(use)
 
     -- Add File Browser 
     use {
-    "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     }
     -- nvim-tree
     use {
@@ -42,9 +42,11 @@ return require('packer').startup(function(use)
     
     -- Mason and packages 
     -- ---------------------- --
-    use 'williamboman/mason.nvim'  -- LSP, debbugers, linters 
+    use 'williamboman/mason.nvim'
+    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
+
     use 'williamboman/mason-lspconfig.nvim'
-    use 'neovim/nvim-lspconfig' 
+    use 'neovim/nvim-lspconfig' -- LSP, debbugers, linters 
 
     -- Rust specific packages 
     use 'simrat39/rust-tools.nvim' -- Automatically set up lspconfig
@@ -69,7 +71,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'                             
 
     -- Extra 
-    use {'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons' }
+    use {'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons'}
 
     -- Simple Tagbar for ctags 
     use 'preservim/tagbar' 
