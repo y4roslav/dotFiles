@@ -20,6 +20,8 @@ Rust lerated https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-devel
 
 === Rust: 
 
+NOTE: https://www.youtube.com/watch?v=gihHLsClHF0[Great YouTube Video Related Rust and Debugging]
+
 - https://github.com/williamboman/mason.nvim[Mason] to manage LSP, debuggers and linter
 - https://github.com/williamboman/mason-lspconfig.nvim[Manson] complimentary functionality 
 
@@ -29,5 +31,7 @@ Rust lerated https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-devel
 - https://github.com/simrat39/rust-tools.nvim[rust-lspconfig] for rust_analyzer for you, 
 so don't do that manually, as it causes conflicts
 - https://github.com/folke/trouble.nvim[Trouble] for showing diagnostics result
-- https://github.com/preservim/tagbar[Tagbar Toggle] for stags
+- https://github.com/preservim/tagbar[Tagbar Toggle] for ctags
+- https://github.com/mfussenegger/nvim-dap[Debug Adapter Protocol]
+- https://github.com/rcarriga/nvim-dap-ui[UI for DAP]
 

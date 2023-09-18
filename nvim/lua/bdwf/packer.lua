@@ -47,6 +47,11 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig' 
     use 'simrat39/rust-tools.nvim' -- Automatically set up lspconfig
 
+    -- Debugging 
+    use 'nvim-lua/plenary.nvim'
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
+
      -- Completion framework:
     use 'hrsh7th/nvim-cmp' 
 

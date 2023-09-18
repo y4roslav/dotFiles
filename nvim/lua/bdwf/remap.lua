@@ -25,6 +25,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- TagBar
 vim.keymap.set("n","<leader>tb", vim.cmd.TagbarToggle)
 
-
 -- Run Rust Run 
 vim.keymap.set("n", "<Leader>rr", vim.cmd.RustRunnables)
+
+-- Rust Debud(DAP)
+vim.keymap.set('n', '<leader>dt', ':DapToggleBreakpoint<CR>')
+vim.keymap.set('n', '<leader>dx', ':DapTerminate<CR>')
+vim.keymap.set('n', '<leader>do', ':DapStepOver<CR>')
