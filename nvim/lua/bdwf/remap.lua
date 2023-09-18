@@ -2,9 +2,22 @@
 vim.g.mapleader = " "
 -- dissable netrw in favor neovim-tree
 -- vim.keymap.set("n","<leader>pv", vim.cmd.Ex)
+
+-- Working with buffers 
 vim.keymap.set("n","<leader>k", vim.cmd.bprev)
 vim.keymap.set("n","<leader>j", vim.cmd.bnext)
 vim.keymap.set("n","<leader>w", vim.cmd.bd)
+
+-- Working with Windows
+-- Split Windows
+vim.keymap.set('n','<C-S>', vim.cmd.vsplit)
+vim.keymap.set('n','<C-A>', vim.cmd.split)
+
+-- Remap Ctrl + [hjkl] for moving around windows 
+vim.keymap.set('n','<C-J>', '<C-W><C-J>')
+vim.keymap.set('n','<C-H>', '<C-W><C-H>')
+vim.keymap.set('n','<C-K>', '<C-W><C-K>')
+vim.keymap.set('n','<C-L>', '<C-W><C-L>')
 
 -- neovim-tree
 local api = require "nvim-tree.api"

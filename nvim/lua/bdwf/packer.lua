@@ -40,14 +40,16 @@ return require('packer').startup(function(use)
     -- Toggle Terminal 
     use {"akinsho/toggleterm.nvim", tag = '*'}
     
-    -- Rust specific packages 
+    -- Mason and packages 
     -- ---------------------- --
     use 'williamboman/mason.nvim'  -- LSP, debbugers, linters 
     use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig' 
+
+    -- Rust specific packages 
     use 'simrat39/rust-tools.nvim' -- Automatically set up lspconfig
 
-    -- Debugging 
+    -- Debugging Rust
     use 'nvim-lua/plenary.nvim'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
@@ -69,8 +71,10 @@ return require('packer').startup(function(use)
     -- Extra 
     use {'folke/trouble.nvim', requires = 'nvim-tree/nvim-web-devicons' }
 
+    -- Simple Tagbar for ctags 
     use 'preservim/tagbar' 
     
+    -- Preview AsciiDoc in Browser
     use 'tigion/nvim-asciidoc-preview'
 
     end)
