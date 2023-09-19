@@ -1,6 +1,6 @@
 = 💤 LazyVim
 
-IMPORTANT: After inital version 0.1.0 I switched to LazyVim as base for this 
+IMPORTANT: After initial version 0.1.0, I switched to LazyVim as the base for this 
 configuration.
 
 Project page: https://github.com/LazyVim/LazyVim[LazyVim]. 
