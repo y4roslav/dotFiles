@@ -17,3 +17,4 @@ NOTE: https://www.lazyvim.org/keymaps[Default Keymaps]
 
 * https://github.com/APZelos/blamer.nvim[Blamer] GitLens-like functionality.
 * https://github.com/tigion/nvim-asciidoc-preview[AsciiDoc] preview in Web Browser. 
+* https://github.com/preservim/tagbar[Tagbar] to display programable structure of buffered file. 
