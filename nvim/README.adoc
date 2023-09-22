@@ -1,6 +1,6 @@
 = 💤 LazyVim
 
-IMPORTANT: After initial version 0.1.0, I switched to LazyVim as the base for this 
+IMPORTANT: After inital version 0.1.0 I switched to LazyVim as base for this 
 configuration.
 
 Project page: https://github.com/LazyVim/LazyVim[LazyVim]. 
@@ -18,3 +18,9 @@ NOTE: https://www.lazyvim.org/keymaps[Default Keymaps]
 * https://github.com/APZelos/blamer.nvim[Blamer] GitLens-like functionality.
 * https://github.com/tigion/nvim-asciidoc-preview[AsciiDoc] preview in Web Browser. 
 * https://github.com/preservim/tagbar[Tagbar] to display programable structure of buffered file. 
+
+==== AsciiDoc integration 
+
+* https://github.com/habamax/vim-asciidoctor#vim-plug[AsciiDoctor] integration.
+
+NOTE: You should have AsciiDosctor, asciidoctor-pdf, and pandoc installed to make this work propperly. 
