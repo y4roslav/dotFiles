@@ -14,6 +14,8 @@ return {
       "codelldb",
       "haskell-language-server",
       "mypy",
+      "java-test",
+      "java-debug-adapter",
     },
   },
 }

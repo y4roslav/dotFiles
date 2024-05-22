@@ -11,7 +11,9 @@ return {
       "rust",
       "sql",
       "yaml",
-      "haskell_persistent",
+      "java",
+      "toml",
+      "scala",
     })
   end,
 }

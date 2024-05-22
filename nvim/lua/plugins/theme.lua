@@ -3,9 +3,8 @@ return {
   { "navarasu/onedark.nvim" },
   -- Configure One Dark Theme
   -- require("onedark").setup({
-  --   style = "darker",
-  -- }),
-  -- Configure LazyVim to load onedark
+  --   style = "darker", }),
+  --   Configure LazyVim to load onedark
   {
     "LazyVim/LazyVim",
     opts = {
