@@ -127,6 +127,12 @@ zplug "b4b4r07/httpstat", \
     use:'(*).sh', \
     rename-to:'$1'
 
+# Fuzzy Finder
+zplug "junegunn/fzf", \
+  hook-build:"./install --bin && ln -sr bin/fzf $ZPLUG_HOME/bin", \
+  use:"shell/*.zsh"
+zplug "unixorn/fzf-zsh-plugin"
+
 # Group dependencies
 
 # Set the priority when loading
@@ -176,9 +182,6 @@ BULLETTRAIN_PROMPT_ORDER=(
 # Run external scripts 
 ######################
 
-# Fuzzy Finder 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Run neofetch
 neofetch
 
@@ -190,3 +193,11 @@ eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+## Use RBenv to manage Ruby version
+eval "$(rbenv init - zsh)"
+
+[ -f "/Users/y4roslav/.ghcup/env" ] && source "/Users/y4roslav/.ghcup/env" # ghcup-env
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
