@@ -1,0 +1,4 @@
+== Useful references 
+
+- https://github.com/alacritty/alacritty-theme[Alacritty Themes]
+- https://github.com/JetBrains/JetBrainsMono[JetBrainsMono Fonts]

@@ -1,0 +1,3 @@
+== ZSH on 10k
+
+Latest config based (mostly) on https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k[PowerLevel10k]

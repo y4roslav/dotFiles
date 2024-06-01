@@ -1,0 +1,73 @@
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = "/usr/bin/vi"
+    pager = less -R
+	autocrlf = false
+    safecrlf = true
+    whitespace = fix, -indent-with-non-tab, space-before-tab, trailing-space, cr-at-eol
+
+[user]
+  name = Yaroslav Ravlinko
+  email = yaroslav@insyde.group
+
+[mergetool]
+  keepBackup = true
+
+[credential]
+  helper = cache --timeout=3600
+
+[color]
+  ui = true
+  diff = true
+  grep = true
+  status = true
+
+[color "branch"]
+  local = yellow
+  remote = green
+  current = yellow reverse
+
+[color "diff"]
+  old = red bold
+  new = blue bold
+  meta = normal
+  frag = magenta bold
+#  whitespace = Resourcesed reverse
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[diff]
+  renames = copy
+
+[log]
+  decorate = full
+
+[alias]
+  # Log related
+  la = !git lh --date-order --all 2> /dev/null
+  lb = log --graph --simplify-by-decoration
+  lba = !git lb --all
+  h  = !git --no-pager log --graph -n 15
+  a  = !git --no-pager la -n 15
+
+  # Show history
+  history = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+  # Show conflicts
+  conflicts = !git ls-files --unmerged | cut -f2 | sort -u | xargs  grep -El '<<<<<<<|=======|>>>>>>>'
+
+  # Show unmergd files
+  unmerged = files !git ls-files --unmerged | cut -f2 | sort -u
+
+  # Show aliases
+  aliases = !git config -l | grep alias | cut -c 7-
+
+  # Pull from remote repository
+  fork = !git config --get remote.origin.url | xargs git pull
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f

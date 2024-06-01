@@ -50,4 +50,22 @@ return {
       })
     end,
   },
+  -- Modify image for "index" page
+  {
+    "goolord/alpha-nvim",
+    opts = function(_, opts)
+      local logo = [[
+            ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+            ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+            ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+            ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+            ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+            ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+
+
+                                   Build for System Developers
+      ]]
+      opts.section.header.val = vim.split(logo, "\n", { trimempty = true })
+    end,
+  },
 }
