@@ -1,0 +1,14 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.lang.ansible",
+    "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.java",
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.util.gitui",
+    "lazyvim.plugins.extras.util.project"
+  ],
+  "news": {
+    "NEWS.md": "3314"
+  },
+  "version": 3
+}
