@@ -18,13 +18,15 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.java" },
-    -- { import = "lazyvim.plugins.extras.lang.tailwind" },
-    { import = "lazyvim.plugins.extras.lang.toml" },
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    -- { import = "lazyvim.plugins.extras.lang.toml" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     -- enable utils
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.gitui" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+    -- UI related plugins
+    { import = "lazyvim.plugins.extras.ui.edgy" },
     -- import/override with your plugins
     { import = "plugins" },
   },
