@@ -162,7 +162,7 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load # --verbose
 
 # Bullet Train Theme configuration 
 
@@ -182,20 +182,21 @@ BULLETTRAIN_PROMPT_ORDER=(
 # Run external scripts 
 ######################
 
-# Run neofetch
-neofetch
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Run macchina (replacement neofetch)
+# neofetch
+macchina
 
 # Initiate secret keys for platfrom management (AWS, Nomad, DO, Linode)
 source $CLOUD_SECRET
 
 # Run keychain for SSH keys management (see Funtoo project for details) 
 eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 ## Use RBenv to manage Ruby version
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 
 [ -f "/Users/y4roslav/.ghcup/env" ] && source "/Users/y4roslav/.ghcup/env" # ghcup-env
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

@@ -1,0 +1,49 @@
+# Bad Wolf Theme 
+
+hide_ascii = false
+
+separator = " "
+separator_color = "Yellow"
+key_color = "Cyan"
+
+[palette]
+type = "Dark"
+visible = true
+glyph = " ⬤ "
+
+[box]
+title = " System Information "
+border = "single"
+visible = true
+
+[bar]
+glyph = "▮ "
+hide_delimiters = true
+visible = true
+
+[randomize]
+key_color = false
+separator_color = false
+
+[custom_ascii]
+color = "Yellow"
+
+[keys]
+host = " Host"
+local_ip = "󰩠 IP"
+machine = "󰷵 Machine"
+os = " OS"
+de = " Desktop"
+vm = " VM"
+kernel = " Kernel"
+distro = "󰌽 Distro"
+packages = " Packages"
+terminal = " Terminal"
+shell = " Shell"
+cpu = "󰻠 CPU"
+gpu = "󰟽 GPU"
+cpu_load = " CPU Load"
+memory = "󰍛 Memory"
+battery = " Battery"
+uptime = " Uptime"
+resolution = "󱡶 Resolution"
