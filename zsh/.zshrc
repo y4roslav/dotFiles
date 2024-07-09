@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 #############################
 ###### Specific for MacOS ###
 #############################
@@ -82,9 +75,6 @@ source ~/.zplug/init.zsh
 # Make sure to use double quotes
 zplug "zsh-users/zsh-history-substring-search"
 
-# defer means to load this plugin after all the other plugins
-zplug "zdharma/fast-syntax-highlighting", defer:2
-
 # Use the package as a command
 # And accept glob patterns (e.g., brace, wildcard, ...)
 zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
@@ -95,16 +85,9 @@ zplug "tcnksm/docker-alias", use:zshrc
 # Disable updates using the "frozen" tag
 zplug "k4rthik/git-cal", as:command, frozen:1
 
-# Supports oh-my-zsh plugins and the like
-zplug "plugins/git",   from:oh-my-zsh
 
 # Also prezto
 # zplug "modules/prompt", from:prezto
-
-# Load if "if" tag returns true
-zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "plugins/osx", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]" # Aliases and functions
-zplug "plugins/gem",   from:oh-my-zsh, if:"(( $+commands[gem] ))" # Completion
 
 zplug "akoenig/gulp.plugin.zsh" # Gulp completion in dev dirs
 zplug "chrissicool/zsh-256color" # Color autoset
@@ -148,9 +131,9 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "~/.zsh", from:local
 
 # Load theme file
-setopt prompt_subst # Make sure prompt is able to be generated properly.
+# setopt prompt_subst # Make sure prompt is able to be generated properly.
 # zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 
-zplug romkatv/powerlevel10k, as:theme, depth:1
+# zplug romkatv/powerlevel10k, as:theme, depth:1
 # as:theme # defer until other plugins like oh-my-zsh is loaded
 
 # Install plugins if there are plugins that have not been installed
@@ -164,27 +147,21 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load # --verbose
 
-# Bullet Train Theme configuration 
-
-BULLETTRAIN_PROMPT_CHAR='➥'
-BULLETTRAIN_PROMPT_ORDER=(
-    time
-		status
-    custom
-		context
-		dir
-		aws
-		rust
-		git
-		cmd_exec_time
-)
-
 # Run external scripts 
 ######################
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Run oh-my-posh as prompt customisation frameworks 
+# eval "$(oh-my-posh init zsh)"
+# List of themes: 
+# - clean-detailed
+# - cloud-context
+# - night-owl
+# - kushal
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/clean-detailed.omp.json)"
 
 # Run macchina (replacement neofetch)
 # neofetch
