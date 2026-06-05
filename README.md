@@ -17,3 +17,4 @@ contain small but critical configs for widely used toolsets.  *But remember
 ## Acknowledgments
 
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads) as "power" version of popular fonts
+- [Oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh) as customisable cross platform/shell prompt renderer 
