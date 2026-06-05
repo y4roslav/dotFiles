@@ -161,7 +161,7 @@ zplug load # --verbose
 # - cloud-context
 # - night-owl
 # - kushal
-eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/clean-detailed.omp.json)"
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/atomic.omp.json)"
 
 # Run macchina (replacement neofetch)
 # neofetch
@@ -179,3 +179,5 @@ eval `keychain --eval --agents ssh --inherit any $SECRETS/*{ecdsa,ed25519}`
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+. "$HOME/.local/bin/env"
