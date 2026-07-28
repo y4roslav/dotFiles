@@ -7,8 +7,9 @@
     "lazyvim.plugins.extras.util.gitui",
     "lazyvim.plugins.extras.util.project"
   ],
+  "install_version": 7,
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "11866"
   },
-  "version": 3
+  "version": 8
 }
